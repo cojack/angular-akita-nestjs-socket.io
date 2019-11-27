@@ -1,0 +1,76 @@
+<section>
+  <h1>Dirty Check</h1>
+  <form [formGroup]="paymentForm" (ngSubmit)="onSubmit()">
+    <fieldset formGroupName="contact">
+      <legend>Contact information</legend>
+      <fieldset>
+        <legend>Title</legend>
+        <ul>
+          <li>
+            <label for="title_1">
+              <input type="radio" id="title_1" name="title" value="M." formControlName="title">
+              Mister
+            </label>
+          </li>
+          <li>
+            <label for="title_2">
+              <input type="radio" id="title_2" name="title" value="Ms." formControlName="title">
+              Miss
+            </label>
+          </li>
+        </ul>
+      </fieldset>
+      <p>
+        <label for="name">
+          <span>Name: </span>
+          <strong><abbr title="required">*</abbr></strong>
+        </label>
+        <input type="text" id="name" name="name" formControlName="name">
+      </p>
+      <p>
+        <label for="mail">
+          <span>E-mail: </span>
+          <strong><abbr title="required">*</abbr></strong>
+        </label>
+        <input type="email" id="mail" name="email" formControlName="email">
+      </p>
+      <p>
+        <label for="pwd">
+          <span>Password: </span>
+          <strong><abbr title="required">*</abbr></strong>
+        </label>
+        <input type="password" id="pwd" name="password" formControlName="password">
+      </p>
+    </fieldset>
+    <fieldset>
+      <legend>Payment information</legend>
+      <p>
+        <label for="card">
+          <span>Card type:</span>
+        </label>
+        <select id="card" name="usercard">
+          <option value="visa">Visa</option>
+          <option value="mc">Mastercard</option>
+          <option value="amex">American Express</option>
+        </select>
+      </p>
+      <p>
+        <label for="number">
+          <span>Card number:</span>
+          <strong><abbr title="required">*</abbr></strong>
+        </label>
+        <input type="tel" id="number" name="cardnumber">
+      </p>
+      <p>
+        <label for="date">
+          <span>Expiration date:</span>
+          <strong><abbr title="required">*</abbr></strong>
+          <em>formatted as mm/yy</em>
+        </label>
+        <input type="date" id="date" name="expiration">
+      </p>
+    </fieldset>
+    <p> <button type="submit">Validate the payment</button> </p>
+    <p> <button type="button" (click)="onResetClick()">Reset</button> </p>
+  </form>
+</section>

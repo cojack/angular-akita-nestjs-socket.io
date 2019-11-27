@@ -1,15 +1,15 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder} from '@angular/forms';
 import {Observable} from 'rxjs';
-import {Todo} from './examples/components/todos/state/todo.model';
-import {TodoService} from './examples/components/todos/state/todo.service';
+import {Todo} from './state/todo.model';
+import {TodoService} from './state/todo.service';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  templateUrl: './todo.component.html',
+  styleUrls: ['./todo.component.css']
 })
-export class AppComponent implements OnInit {
+export class TodoComponent implements OnInit {
   public readonly todos$: Observable<Todo[]>;
   public readonly todoForm;
 
