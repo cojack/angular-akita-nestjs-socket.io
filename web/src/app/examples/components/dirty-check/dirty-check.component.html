@@ -25,14 +25,16 @@
           <span>Name: </span>
           <strong><abbr title="required">*</abbr></strong>
         </label>
-        <input type="text" id="name" name="name" formControlName="name">
+        <input type="text" id="name" name="name" formControlName="name" required>
+        <span *ngIf="contact.get('name').touched && contact.get('name').errors?.required">Field is required</span>
       </p>
       <p>
         <label for="mail">
           <span>E-mail: </span>
           <strong><abbr title="required">*</abbr></strong>
         </label>
-        <input type="email" id="mail" name="email" formControlName="email">
+        <input type="email" id="mail" name="email" formControlName="email" required>
+        <span *ngIf="contact.get('email').touched && contact.get('email').errors?.required">Field is required</span>
       </p>
       <p>
         <label for="pwd">
@@ -73,4 +75,11 @@
     <p> <button type="submit">Validate the payment</button> </p>
     <p> <button type="button" (click)="onResetClick()">Reset</button> </p>
   </form>
+  <p>Form status</p>
+  <pre><code>
+    Valid: {{paymentForm.valid}}
+    Dirty: {{paymentForm.dirty}}
+    Status: {{paymentForm.status}}
+    Value: {{paymentForm.value|json}}
+  </code></pre>
 </section>

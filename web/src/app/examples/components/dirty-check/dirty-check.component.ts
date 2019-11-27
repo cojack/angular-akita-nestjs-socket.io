@@ -1,5 +1,5 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {FormBuilder, FormGroup} from '@angular/forms';
+import {FormBuilder, Validators} from '@angular/forms';
 import {AkitaNgFormsManager} from '@datorama/akita-ng-forms-manager';
 import {Payment} from './state/payment.model';
 
@@ -13,7 +13,19 @@ export interface FormsState {
   styleUrls: ['./dirty-check.component.css']
 })
 export class DirtyCheckComponent implements OnInit, OnDestroy {
-  public paymentForm: FormGroup;
+  public paymentForm = this.fb.group({
+    contact: this.fb.group({
+      title: [''],
+      name: ['', Validators.required],
+      email: ['', Validators.required],
+      password: ['']
+    }),
+    creditCard: this.fb.group({
+      cardType: [''],
+      cardNumber: [''],
+      expirationDate: ['']
+    })
+  });
 
   constructor(
     private readonly fb: FormBuilder,
@@ -21,12 +33,12 @@ export class DirtyCheckComponent implements OnInit, OnDestroy {
   ) {
   }
 
+  get contact() {
+    return this.paymentForm.get('contact');
+  }
+
   public ngOnInit(): void {
-    if (this.formsManager.hasForm('payment')) {
-      this.formsManager.selectNgForm('payment').subscribe(form => this.paymentForm = form);
-    } else {
-      this.buildForm();
-    }
+    this.formsManager.upsert('payment', this.paymentForm, { persistForm: true });
   }
 
   public ngOnDestroy(): void {
@@ -34,27 +46,10 @@ export class DirtyCheckComponent implements OnInit, OnDestroy {
   }
 
   public onSubmit() {
-
+    this.paymentForm.reset();
   }
 
   public onResetClick() {
 
-  }
-
-  private buildForm() {
-    this.paymentForm  = this.fb.group({
-      contact: this.fb.group({
-        title: [''],
-        name: [''],
-        email: [''],
-        password: ['']
-      }),
-      creditCard: this.fb.group({
-        cardType: [''],
-        cardNumber: [''],
-        expirationDate: ['']
-      })
-    });
-    this.formsManager.upsert('payment', this.paymentForm, { persistForm: true });
   }
 }
