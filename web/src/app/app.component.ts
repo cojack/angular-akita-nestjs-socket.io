@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder} from '@angular/forms';
 import {Observable} from 'rxjs';
-import {Todo} from './examples/components/todos/state/todo.model';
-import {TodoService} from './examples/components/todos/state/todo.service';
+import {Todo} from './examples/state/todo/todo.model';
+import {TodoService} from './examples/state/todo/todo.service';
 
 @Component({
   selector: 'app-root',

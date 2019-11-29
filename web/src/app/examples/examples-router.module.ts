@@ -1,7 +1,7 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {ExampleComponent} from './example.component';
-import {DirtyCheckComponent, TodoComponent} from './components';
+import {DirtyCheckComponent, StoryFormComponent, TodoComponent} from './components';
 
 
 const examplesRoutes: Routes = [
@@ -16,6 +16,10 @@ const examplesRoutes: Routes = [
       {
         path: 'dirty-check',
         component: DirtyCheckComponent
+      },
+      {
+        path: 'persist-form',
+        component: StoryFormComponent
       }
     ]
   },

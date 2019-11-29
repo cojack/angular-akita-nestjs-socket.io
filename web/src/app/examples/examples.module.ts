@@ -1,10 +1,9 @@
-import {NgModule} from '@angular/core';
-import {ExampleComponent} from './example.component';
-import {DirtyCheckComponent, TodoComponent} from './components';
-import {ExamplesRouterModule} from './examples-router.module';
-import {ReactiveFormsModule} from '@angular/forms';
 import {CommonModule} from '@angular/common';
-
+import {NgModule} from '@angular/core';
+import {ReactiveFormsModule} from '@angular/forms';
+import {DirtyCheckComponent, StoryFormComponent, TodoComponent} from './components';
+import {ExampleComponent} from './example.component';
+import {ExamplesRouterModule} from './examples-router.module';
 
 @NgModule({
   imports: [
@@ -15,7 +14,8 @@ import {CommonModule} from '@angular/common';
   declarations: [
     ExampleComponent,
     TodoComponent,
-    DirtyCheckComponent
+    DirtyCheckComponent,
+    StoryFormComponent
   ]
 })
 export class ExamplesModule {

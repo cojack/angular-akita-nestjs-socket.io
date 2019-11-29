@@ -33,6 +33,7 @@ import {Component} from '@angular/core';
       <ul>
         <li><a [routerLink]="['todos']">TODOs</a></li>
         <li><a [routerLink]="['dirty-check']">Dirty Check</a></li>
+        <li><a [routerLink]="['persist-form']">Persist Form</a></li>
       </ul>
       <router-outlet></router-outlet>
     </section>

@@ -1,7 +1,7 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {FormBuilder, Validators} from '@angular/forms';
 import {AkitaNgFormsManager} from '@datorama/akita-ng-forms-manager';
-import {Payment} from './state/payment.model';
+import {Payment} from '../../state/payment/payment.model';
 
 export interface FormsState {
   payment: Payment;
